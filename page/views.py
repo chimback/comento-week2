@@ -2,12 +2,12 @@ from django.shortcuts import render, redirect
 from page.models import Message
 
 # Create your views here.
-def home(request):
+def get_index(request):
     return render(request, 'home.html')
 
-def more(request):
+def post_message(request):
     messages = Message.objects.all()
-    print(messages)
+    print(messages) # standard IO코드는 빼주세요 :)(
     if request.method == 'POST':
         name = request.POST['name']
         message = request.POST['message']
